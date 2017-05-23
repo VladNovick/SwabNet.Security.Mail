@@ -1,0 +1,53 @@
+HKCR
+{
+	SwabNetSMail.SMailPlug.1 = s 'SMailPlug Class'
+	{
+		CLSID = s '{C704648D-6030-47E9-ADBA-1E13B6A784AE}'
+	}
+	SwabNetSMail.SMailPlug = s 'SMailPlug Class'
+	{
+		CLSID = s '{C704648D-6030-47E9-ADBA-1E13B6A784AE}'
+		CurVer = s 'SwabNetSMail.SMailPlug.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C704648D-6030-47E9-ADBA-1E13B6A784AE} = s 'SMailPlug Class'
+		{
+			ProgID = s 'SwabNetSMail.SMailPlug.1'
+			VersionIndependentProgID = s 'SwabNetSMail.SMailPlug'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EDDBDEA4-5C07-453F-BE8C-81D738984381}'
+		}
+	}
+}
+
+HKCU
+{
+  	Software
+	{
+		Microsoft
+		{
+			Office
+			{
+				Outlook
+				{
+					Addins
+					{
+						'SwabNetSMail.SMailPlug'
+						{
+							val FriendlyName = s 'Outlook SMailPlug'
+							val Description = s 'SwabNet Security'
+							val LoadBehavior = d '00000003'
+							val CommandLineSafe = d '00000000' 
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
